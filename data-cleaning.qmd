@@ -13,11 +13,30 @@ library(codebookr)
 ```{r}
 alldata <- read_csv("roommate-chores-data.csv")
 
-# add row 2 into column heading
-alldata <- cb_add_col_attributes(alldata, Q1, description = "test")
+# add row 2 into column heading -- do this eventually 
+# alldata <- cb_add_col_attributes(alldata, Q1, description = "test")
+
+# for now: filter df
+alldataf <- alldata[3:22,]
 
 # ID checks
 alldata$email == alldata$email_confirm
+
+check_id <- function(email, confirm_email) {
+  
+  
+  if (!(email == confirm_email)) {
+    # set confirmed email as email
+    email <- confirm_email
+    return(c(email, confirm_email))
+  } else {
+    return(c(email, confirm_email))
+  }
+}
+
+
+check_id(alldataf[5,73], alldataf[6,73])
+
 ```
 
 
