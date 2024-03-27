@@ -2,7 +2,22 @@
 title: "data-cleaning"
 ---
 
+## Load packages
 ```{r}
-
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(codebookr)
 ```
+
+```{r}
+alldata <- read_csv("roommate-chores-data.csv")
+
+# add row 2 into column heading
+alldata <- cb_add_col_attributes(alldata, Q1, description = "test")
+
+# ID checks
+alldata$email == alldata$email_confirm
+```
+
 
