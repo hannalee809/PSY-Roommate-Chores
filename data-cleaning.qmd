@@ -37,5 +37,32 @@ check_id <- function(df, email, confirm_email) {
 alldata_test <- check_id(alldataf, email = email, confirm_email = email_confirm)
 
 ```
+## Creating dyads
+```{r}
+# filter data for ones with emails
+data_with_emails <- alldata %>% 
+  filter(!is.na(email))  
+  
+data_with_emails <- data_with_emails[3:10,]
+
+create_dyad <- function(df, x, y) {
+  
+  
+  # for (i in 1:nrow(df)) {
+  #   print(df[[x]][i])
+  #   print(df[[y]][i])
+  #   
+  #   if (df[[x]][i] == df[[y]])
+
+#   
+# }
+}
+
+
+data_with_emails <- data_with_emails %>% 
+   mutate(dyad_exist = data_with_emails$email %in% data_with_emails$ptnr_email)
+ 
+create_dyad(df= data_with_emails, x = "email", y = "ptnr_email") 
+```
 
 
