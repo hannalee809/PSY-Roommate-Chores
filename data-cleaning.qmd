@@ -22,20 +22,19 @@ alldataf <- alldata[3:22,]
 # ID checks
 alldata$email == alldata$email_confirm
 
-check_id <- function(email, confirm_email) {
-  
-  
-  if (!(email == confirm_email)) {
+check_id <- function(df, email, confirm_email) {
+
+  if (!(df$email == df$confirm_email)) {
     # set confirmed email as email
-    email <- confirm_email
-    return(c(email, confirm_email))
+    df$email <- df$confirm_email
+    return(df)
   } else {
-    return(c(email, confirm_email))
+    return(df)
   }
 }
 
 
-check_id(alldataf[5,73], alldataf[6,73])
+alldata_test <- check_id(alldataf, email = email, confirm_email = email_confirm)
 
 ```
 
